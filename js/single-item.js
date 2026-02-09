@@ -19,5 +19,10 @@ function createSingleItem(item) {
     editCompleted(item.id);
   });
 
+  // Add event listener for remove button
+  $div.find(".remove-btn").on("click", function () {
+    removeItem(item.id);
+  });
+
   return $div;
 }

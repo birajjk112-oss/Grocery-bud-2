@@ -23,3 +23,14 @@ function editCompleted(itemId) {
   });
   render();
 }
+
+// Remove Item Function
+function removeItem(itemId) {
+  items = $.grep(items, function (item) {
+    return item.id !== itemId;
+  });
+  render();
+  setTimeout(function () {
+    alert("Item Deleted Successfully!");
+  }, 0);
+}
