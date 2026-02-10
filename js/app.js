@@ -5,10 +5,14 @@ function render() {
   var $app = $("#app");
   $app.empty();
 
+  var $formElement = createForm();
   var $itemsElement = createItems(items);
   $app.append($itemsElement);
+  $app.append($formElement);
 }
-
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
 // Initialize App
 $(document).ready(function () {
   render();
@@ -32,5 +36,18 @@ function removeItem(itemId) {
   render();
   setTimeout(function () {
     alert("Item Deleted Successfully!");
+  }, 0);
+}
+// Add Item Function
+function addItem(itemName) {
+  var newItem = {
+    name: itemName,
+    completed: false,
+    id: generateId(),
+  };
+  items.push(newItem);
+  render();
+  setTimeout(function () {
+    alert("Item Added Successfully!");
   }, 0);
 }
