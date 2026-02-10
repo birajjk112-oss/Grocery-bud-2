@@ -2,21 +2,12 @@
 function createForm(editId, itemToEdit) {
   var $form = $("<form></form>");
 
+  var totalQuantity = items.reduce(function (sum, item) {
+    return sum + item.quantity;
+  }, 0);
+
   $form.html(`
-    <h2>grocery bud</h2>
-    <div class="form-control">
-      <input
-        type="text"
-        class="form-input"
-        placeholder="e.g. eggs"
-      />
-      <button type="submit" class="btn">
-        add item
-      </button>
-    </div>
-  `);
-  $form.html(`
-    <h2>grocery bud</h2>
+    <h2>grocery bud<span class="item-count">(${totalQuantity})</span></h2>
     <div class="form-control">
       <input
         type="text"

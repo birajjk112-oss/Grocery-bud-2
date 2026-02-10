@@ -7,13 +7,18 @@ function createSingleItem(item) {
     <p style="text-decoration: ${item.completed ? "line-through" : "none"}">
       ${item.name}
     </p>
+    <div class="quantity-controls">
+      <button class="btn icon-btn qty-decrease-btn" type="button">-</button>
+      <span class="qty-display">${item.quantity}</span>
+      <button class="btn icon-btn qty-increase-btn" type="button">+</button>
+    </div>
     <button class="btn icon-btn edit-btn" type="button">
       <i class="fa-regular fa-pen-to-square"></i>
     </button>
     <button class="btn icon-btn remove-btn" type="button">
       <i class="fa-regular fa-trash-can"></i>
     </button>
-  `);
+  `)
   // Add event listener for checkbox
   $div.find('input[type="checkbox"]').on("change", function () {
     editCompleted(item.id);
@@ -26,6 +31,15 @@ function createSingleItem(item) {
   // Add event listener for edit button
   $div.find(".edit-btn").on("click", function () {
     setEditId(item.id);
+  });
+
+  // Add event listeners for quantity buttons
+  $div.find(".qty-increase-btn").on("click", function () {
+    updateItemQuantity(item.id, 1);
+  });
+
+  $div.find(".qty-decrease-btn").on("click", function () {
+    updateItemQuantity(item.id, -1);
   });
 
   return $div;

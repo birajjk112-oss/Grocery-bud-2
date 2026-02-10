@@ -7,7 +7,7 @@
 }
 
 body {
-  background: url('../images/bg.jpg');
+  background: url("../images/bg.jpg");
   background-size: cover;
   background-attachment: fixed;
   font-family: Helvetica, sans-serif;
@@ -24,4 +24,30 @@ body {
   border-radius: 0.25rem;
   padding: 2rem;
   position: relative;
+}
+
+.item-count {
+  font-size: 0.6em;
+  color: #888;
+  margin-left: 0.5rem;
+  font-weight: 300;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qty-display {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.qty-increase-btn,
+.qty-decrease-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  min-width: 2rem;
 }

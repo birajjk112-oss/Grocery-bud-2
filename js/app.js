@@ -50,6 +50,7 @@ function addItem(itemName) {
     name: itemName,
     completed: false,
     id: generateId(),
+    quantity: 1,
   };
   items.push(newItem);
   render();
@@ -81,4 +82,16 @@ function setEditId(itemId) {
   setTimeout(function () {
     $(".form-input").focus();
   }, 0);
+}
+
+// Update Item Quantity Function
+function updateItemQuantity(itemId, change) {
+  items = $.map(items, function (item) {
+    if (item.id === itemId) {
+      var newQuantity = Math.max(1, item.quantity + change);
+      return $.extend({}, item, { quantity: newQuantity });
+    }
+    return item;
+  });
+  render();
 }
